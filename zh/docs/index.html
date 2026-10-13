@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API 文档 — Diamond X</title>
+<meta name="description" content="如何接入 Diamond X 短信与 RCS：REST API、SMPP、送达状态、Webhook 与错误码。">
+<link rel="canonical" href="https://diamondx.app/zh/docs/">
+<link rel="alternate" hreflang="pt-BR" href="https://diamondx.app/docs/">
+<link rel="alternate" hreflang="en" href="https://diamondx.app/en/docs/">
+<link rel="alternate" hreflang="es" href="https://diamondx.app/es/docs/">
+<link rel="alternate" hreflang="zh-CN" href="https://diamondx.app/zh/docs/">
+<link rel="alternate" hreflang="x-default" href="https://diamondx.app/docs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diamond X">
+<meta property="og:title" content="API 文档 — Diamond X">
+<meta property="og:description" content="如何接入 Diamond X 短信与 RCS：REST API、SMPP、送达状态、Webhook 与错误码。">
+<meta property="og:url" content="https://diamondx.app/zh/docs/">
+<meta property="og:image" content="https://diamondx.app/assets/og-image.png">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#A6121C">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#A6121C}a:hover{color:#7E0D15}
+.dc h2{font-family:'Plus Jakarta Sans','PingFang SC',sans-serif;font-weight:800;font-size:30px;letter-spacing:-0.03em;line-height:1.15;margin:0 0 8px;color:#141922}
+.dc h3{font-family:'Plus Jakarta Sans','PingFang SC',sans-serif;font-weight:700;font-size:18px;margin:30px 0 10px;color:#141922}
+.dc p{margin:0 0 12px;font-size:16px;line-height:1.7;color:#3B4352}
+.dc ul{margin:0 0 12px;padding-left:22px}
+.dc li{font-size:16px;line-height:1.7;color:#3B4352}
+.dc code{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:#F1F2F6;padding:2px 6px;border-radius:6px;color:#1D2330}
+.dc pre{margin:0 0 16px;background:#141922;color:#D5DAE3;border-radius:14px;padding:20px 22px;overflow-x:auto;font-family:ui-monospace,Menlo,monospace;font-size:14px;line-height:1.65}
+.dc .sec{background:#FFFFFF;border:1px solid #EAECF1;border-radius:24px;padding:44px;margin-bottom:24px}
+.dc .ep{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:22px 0 12px}
+.dc .m{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+.dc .post{background:#FDECEC;color:#8E1018}
+.dc .get{background:#EAF6F0;color:#155C3C}
+.dc .path{font-family:ui-monospace,Menlo,monospace;font-size:15px;font-weight:600;color:#1D2330}
+.dc table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:15px}
+.dc th{text-align:left;font-weight:600;color:#1D2330;background:#F7F8FA;padding:10px 12px;border-bottom:1px solid #EAECF1}
+.dc td{padding:10px 12px;border-bottom:1px solid #EEF0F4;color:#3B4352;vertical-align:top}
+.dc .note{background:#FFF6F5;border:1px solid #F3DCDC;border-radius:14px;padding:16px 20px;margin:0 0 16px}
+.dc .tw{overflow-x:auto}
+.dc .chip{font-size:15px;font-weight:600;text-decoration:none;color:#1D2330;background:#FFFFFF;border:1px solid #DCE0E8;padding:11px 16px;border-radius:999px}
+</style>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<div style="font-family: Inter, 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; color: #1D2330; background: #F7F8FA; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #EEF0F4; background: #FFFFFF">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="/zh/" style="display: flex; align-items: center; text-decoration: none">
+<img src="/assets/diamondx-logo-600.png" alt="Diamond X — Beyond delivery" style="height: 44px; width: auto; display: block">
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<div role="group" aria-label="Idioma / Language" style="display: flex; align-items: center; gap: 2px; background: #F4F5F8; border-radius: 999px; padding: 4px">
+
+<a href="/docs/" hreflang="pt" lang="pt"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">PT</a>
+
+<a href="/en/docs/" hreflang="en" lang="en"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">EN</a>
+
+<a href="/es/docs/" hreflang="es" lang="es"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">ES</a>
+
+<a href="/zh/docs/" hreflang="zh" lang="zh" aria-current="page" class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: #A6121C; color: #FFFFFF;">中文</a>
+
+</div>
+<a href="/zh/" style="font-size: 15px; font-weight: 600; color: #1D2330; text-decoration: none; padding: 11px 18px; border: 1px solid #DCE0E8; border-radius: 999px">← 返回网站</a>
+<a href="https://novo.diamondx.app/criar-conta?lang=zh" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: #A6121C; text-decoration: none; padding: 12px 18px; border-radius: 999px">创建账户</a>
+</div>
+</nav>
+</header>
+
+<div class="dc" style="max-width: 920px; margin: 0 auto; padding: 56px 24px 80px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #A6121C; letter-spacing: 0.04em; text-transform: uppercase">开发者</p>
+<h1 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 46px; letter-spacing: -0.035em; line-height: 1.08; color: #141922">开发文档</h1>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: #4A5263">通过 HTTP API 或 SMPP 发送短信和 RCS，跟踪每条消息的状态，并在您的系统中接收状态更新。</p>
+<div style="margin: 28px 0 40px; display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#inicio" class="chip">快速开始</a>
+<a href="#api" class="chip">短信 API</a>
+<a href="#rcs" class="chip">RCS</a>
+<a href="#webhooks" class="chip">Webhooks</a>
+<a href="#smpp" class="chip">SMPP</a>
+<a href="#erros" class="chip">错误码</a>
+</div>
+
+<section id="inicio" class="sec">
+<h2>快速开始</h2>
+<ul>
+<li>创建账户，并通过 PIX 或 USDT 充值。</li>
+<li>在控制台的“API / SMPP 连接”中登记您服务器的 IP。只有这些地址可以使用 API 和 SMPP。</li>
+<li>生成凭据：API 令牌以及 SMPP 用户名和密码。凭据只显示一次，请妥善保存。</li>
+<li>在控制台中查看您的发件人 SID，或调用 <code>GET /api/v1/routes</code>.</li>
+</ul>
+<h3>身份验证</h3>
+<p>所有请求均使用 HTTPS，并在 Authorization 请求头中携带令牌：</p>
+<pre>Authorization: Bearer TOKEN
+Content-Type: application/json</pre>
+<div class="note"><p style="margin: 0">切勿将令牌放在应用、网页或公开代码仓库中。如怀疑泄露，请在控制台重新生成凭据，旧凭据会立即失效。</p></div>
+<p>API 基础地址与凭据一起显示在控制台中。</p>
+</section>
+
+<section id="api" class="sec">
+<h2>短信 API</h2>
+
+<div class="ep"><span class="m post">POST</span><span class="path">/api/v1/messages</span></div>
+<p>发送一条消息。</p>
+<div class="tw"><table>
+<tr><th>字段</th><th>必填</th><th>说明</th></tr>
+<tr><td><code>sid</code></td><td>是</td><td>您账户的发件人 SID。</td></tr>
+<tr><td><code>to</code></td><td>是</td><td>目标号码。巴西号码可带或不带 55（5511999990000 或 11999990000）。</td></tr>
+<tr><td><code>text</code></td><td>是</td><td>消息内容。</td></tr>
+<tr><td><code>reference</code></td><td>否</td><td>您的自定义标识（最多 128 个字符）。重复提交相同的 reference 不会重复发送。</td></tr>
+<tr><td><code>channel</code></td><td>否</td><td>sms（默认）或 rcs。</td></tr>
+</table></div>
+<pre>curl -X POST https://[API]/api/v1/messages \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"sid":"SID","to":"5511999990000","text":"您的验证码是 482913","reference":"pedido-1001"}'</pre>
+<p>响应：</p>
+<pre>{ "id": "dx1234567", "status": "queued", "amount": 45000, "currency": "BRL" }</pre>
+<p>amount 字段为扣费金额，单位为货币的百万分之一（45000 = 0.045 巴西雷亚尔）。</p>
+<div class="note"><p style="margin: 0">支持长短信：Diamond X 自动拆分文本，手机上显示为一条完整消息。每段最多 153 个无重音字符（含重音、表情或中文时为 67 个），最多 20 段。按段计费；不超过 160 个字符（含重音、表情或中文时为 70 个）的消息计为一段。</p></div>
+
+<div class="ep"><span class="m get">GET</span><span class="path">/api/v1/messages/{id}</span></div>
+<p>查询消息状态。</p>
+<pre>{ "id": "dx1234567", "status": "delivered", "phone": "5511999990000", "channel": "sms",
+  "created_at": "…", "updated_at": "…", "delivered_at": "…" }</pre>
+<div class="tw"><table>
+<tr><th>Status</th><th>含义</th></tr>
+<tr><td><code>queued</code></td><td>在 Diamond X 队列中。</td></tr>
+<tr><td><code>sent</code></td><td>运营商已接收，等待确认。</td></tr>
+<tr><td><code>delivered</code></td><td>已送达手机。</td></tr>
+<tr><td><code>undelivered</code></td><td>运营商无法送达。</td></tr>
+<tr><td><code>failed</code></td><td>发送失败或被拒绝。</td></tr>
+<tr><td><code>unknown</code></td><td>运营商未返回最终确认。</td></tr>
+</table></div>
+
+<div class="ep"><span class="m get">GET</span><span class="path">/api/v1/routes</span></div>
+<p>列出您账户中可用的 SID，包括渠道（sms 或 rcs）、国家、价格和币种。</p>
+
+<div class="ep"><span class="m get">GET</span><span class="path">/api/v1/balance</span></div>
+<p>显示可用余额、进行中发送所预留的余额以及账户币种。</p>
+</section>
+
+<section id="rcs" class="sec">
+<h2>RCS</h2>
+<p>账户开通 RCS SID 后，使用同一个发送接口，并设置 <code>"channel": "rcs"</code>:</p>
+<pre>{"sid":"SID_RCS","to":"5511999990000","text":"您的订单已发货！","channel":"rcs"}</pre>
+<p>消息会带着您品牌的名称、标志和认证标识送达。卡片、轮播、按钮以及品牌代理注册，请参阅控制台中的 RCS 指南。</p>
+</section>
+
+<section id="webhooks" class="sec">
+<h2>Webhooks</h2>
+<p>在控制台登记您系统的 HTTPS 地址，即可接收消息状态更新，无需轮询 API。</p>
+<ul>
+<li>每次回调都会在请求头 <code>X-DiamondX-Signature</code> 中附带 HMAC-SHA256 签名，密钥显示在控制台中。处理前请先校验签名。</li>
+<li>请返回 HTTP 2xx。如果您的系统不可用，Diamond X 会重试。</li>
+<li>使用 id 或您的 reference 将事件与发送记录对应。</li>
+</ul>
+</section>
+
+<section id="smpp" class="sec">
+<h2>SMPP</h2>
+<ul>
+<li>SMPP 3.4 协议，支持 transmitter、receiver 和 transceiver 绑定。</li>
+<li>每个账户最多 3 个连接，每个连接有独立的用户名和密码。</li>
+<li>在 registered_delivery 中请求后，通过 deliver_sm 返回送达报告（DLR）。</li>
+<li>长短信：使用 UDH 或 SAR 分段发送，手机上合并显示。</li>
+<li>仅允许控制台中登记的 IP 访问。</li>
+<li>地址、端口、用户名（system_id）和密码在登录后显示于控制台的“API / SMPP 连接”中。</li>
+</ul>
+</section>
+
+<section id="erros" class="sec">
+<h2>错误码</h2>
+<p>错误会返回 HTTP 状态码，并在 error 字段中附带说明。</p>
+<div class="tw"><table>
+<tr><th>状态码</th><th>发生情况</th></tr>
+<tr><td><code>400</code></td><td>字段无效或缺失、号码不属于该 SID 所在国家，或 SID 未在账户中启用。</td></tr>
+<tr><td><code>401</code></td><td>令牌缺失或无效。</td></tr>
+<tr><td><code>403</code></td><td>无访问权限：IP 未登记、账户未激活或 SID 未开通。</td></tr>
+<tr><td><code>404</code></td><td>未找到消息。</td></tr>
+</table></div>
+<p>集成遇到问题？请联系技术支持： <a href="https://wa.me/5548991998188">WhatsApp</a> · <a href="mailto:site@diamondx.app">site@diamondx.app</a></p>
+</section>
+</div>
+
+<footer style="border-top: 1px solid #EEF0F4; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: #5B6474">
+<p style="margin: 0">Vertex Consultoria em Tecnologia da Informação LTDA · CNPJ 54.654.095/0001-96</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px"><a href="/zh/termos/#termos" style="color: #5B6474">使用条款</a><a href="/zh/termos/#privacidade" style="color: #5B6474">隐私政策</a></div>
+</div>
+</footer>
+</div>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentação da API — Diamond X</title>
+<meta name="description" content="Como integrar SMS e RCS com a Diamond X: API REST, SMPP, status de entrega, webhooks e erros.">
+<link rel="canonical" href="https://diamondx.app/docs/">
+<link rel="alternate" hreflang="pt-BR" href="https://diamondx.app/docs/">
+<link rel="alternate" hreflang="en" href="https://diamondx.app/en/docs/">
+<link rel="alternate" hreflang="es" href="https://diamondx.app/es/docs/">
+<link rel="alternate" hreflang="zh-CN" href="https://diamondx.app/zh/docs/">
+<link rel="alternate" hreflang="x-default" href="https://diamondx.app/docs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diamond X">
+<meta property="og:title" content="Documentação da API — Diamond X">
+<meta property="og:description" content="Como integrar SMS e RCS com a Diamond X: API REST, SMPP, status de entrega, webhooks e erros.">
+<meta property="og:url" content="https://diamondx.app/docs/">
+<meta property="og:image" content="https://diamondx.app/assets/og-image.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#A6121C">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#A6121C}a:hover{color:#7E0D15}
+.dc h2{font-family:'Plus Jakarta Sans','PingFang SC',sans-serif;font-weight:800;font-size:30px;letter-spacing:-0.03em;line-height:1.15;margin:0 0 8px;color:#141922}
+.dc h3{font-family:'Plus Jakarta Sans','PingFang SC',sans-serif;font-weight:700;font-size:18px;margin:30px 0 10px;color:#141922}
+.dc p{margin:0 0 12px;font-size:16px;line-height:1.7;color:#3B4352}
+.dc ul{margin:0 0 12px;padding-left:22px}
+.dc li{font-size:16px;line-height:1.7;color:#3B4352}
+.dc code{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:#F1F2F6;padding:2px 6px;border-radius:6px;color:#1D2330}
+.dc pre{margin:0 0 16px;background:#141922;color:#D5DAE3;border-radius:14px;padding:20px 22px;overflow-x:auto;font-family:ui-monospace,Menlo,monospace;font-size:14px;line-height:1.65}
+.dc .sec{background:#FFFFFF;border:1px solid #EAECF1;border-radius:24px;padding:44px;margin-bottom:24px}
+.dc .ep{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:22px 0 12px}
+.dc .m{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+.dc .post{background:#FDECEC;color:#8E1018}
+.dc .get{background:#EAF6F0;color:#155C3C}
+.dc .path{font-family:ui-monospace,Menlo,monospace;font-size:15px;font-weight:600;color:#1D2330}
+.dc table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:15px}
+.dc th{text-align:left;font-weight:600;color:#1D2330;background:#F7F8FA;padding:10px 12px;border-bottom:1px solid #EAECF1}
+.dc td{padding:10px 12px;border-bottom:1px solid #EEF0F4;color:#3B4352;vertical-align:top}
+.dc .note{background:#FFF6F5;border:1px solid #F3DCDC;border-radius:14px;padding:16px 20px;margin:0 0 16px}
+.dc .tw{overflow-x:auto}
+.dc .chip{font-size:15px;font-weight:600;text-decoration:none;color:#1D2330;background:#FFFFFF;border:1px solid #DCE0E8;padding:11px 16px;border-radius:999px}
+</style>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<div style="font-family: Inter, 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; color: #1D2330; background: #F7F8FA; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #EEF0F4; background: #FFFFFF">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="/" style="display: flex; align-items: center; text-decoration: none">
+<img src="/assets/diamondx-logo-600.png" alt="Diamond X — Beyond delivery" style="height: 44px; width: auto; display: block">
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<div role="group" aria-label="Idioma / Language" style="display: flex; align-items: center; gap: 2px; background: #F4F5F8; border-radius: 999px; padding: 4px">
+
+<a href="/docs/" hreflang="pt" lang="pt" aria-current="page" class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: #A6121C; color: #FFFFFF;">PT</a>
+
+<a href="/en/docs/" hreflang="en" lang="en"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">EN</a>
+
+<a href="/es/docs/" hreflang="es" lang="es"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">ES</a>
+
+<a href="/zh/docs/" hreflang="zh" lang="zh"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">中文</a>
+
+</div>
+<a href="/" style="font-size: 15px; font-weight: 600; color: #1D2330; text-decoration: none; padding: 11px 18px; border: 1px solid #DCE0E8; border-radius: 999px">← Voltar ao site</a>
+<a href="https://novo.diamondx.app/criar-conta" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: #A6121C; text-decoration: none; padding: 12px 18px; border-radius: 999px">Criar conta</a>
+</div>
+</nav>
+</header>
+
+<div class="dc" style="max-width: 920px; margin: 0 auto; padding: 56px 24px 80px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #A6121C; letter-spacing: 0.04em; text-transform: uppercase">Desenvolvedores</p>
+<h1 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 46px; letter-spacing: -0.035em; line-height: 1.08; color: #141922">Documentação</h1>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: #4A5263">Envie SMS e RCS pela API HTTP ou por SMPP, acompanhe o status de cada mensagem e receba as atualizações no seu sistema.</p>
+<div style="margin: 28px 0 40px; display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#inicio" class="chip">Primeiros passos</a>
+<a href="#api" class="chip">API de SMS</a>
+<a href="#rcs" class="chip">RCS</a>
+<a href="#webhooks" class="chip">Webhooks</a>
+<a href="#smpp" class="chip">SMPP</a>
+<a href="#erros" class="chip">Erros</a>
+</div>
+
+<section id="inicio" class="sec">
+<h2>Primeiros passos</h2>
+<ul>
+<li>Crie sua conta e adicione saldo via PIX ou USDT.</li>
+<li>No painel, em Conexões API / SMPP, cadastre os IPs dos seus servidores. Só esses endereços conseguem usar a API e o SMPP.</li>
+<li>Gere suas credenciais: o token da API e o usuário e a senha do SMPP. Eles aparecem uma única vez; guarde em local seguro.</li>
+<li>Veja os seus SIDs/LAs (remetentes) no painel ou pela rota <code>GET /api/v1/routes</code>.</li>
+</ul>
+<h3>Autenticação</h3>
+<p>Todas as chamadas usam HTTPS e o token no cabeçalho Authorization:</p>
+<pre>Authorization: Bearer TOKEN
+Content-Type: application/json</pre>
+<div class="note"><p style="margin: 0">Nunca coloque o token em aplicativos, páginas web ou repositórios públicos. Se suspeitar de vazamento, gere novas credenciais no painel: as antigas deixam de funcionar na hora.</p></div>
+<p>O endereço base da API é informado no painel, junto com as credenciais.</p>
+</section>
+
+<section id="api" class="sec">
+<h2>API de SMS</h2>
+
+<div class="ep"><span class="m post">POST</span><span class="path">/api/v1/messages</span></div>
+<p>Envia uma mensagem.</p>
+<div class="tw"><table>
+<tr><th>Campo</th><th>Obrigatório</th><th>Descrição</th></tr>
+<tr><td><code>sid</code></td><td>sim</td><td>O SID/LA (remetente) da sua conta.</td></tr>
+<tr><td><code>to</code></td><td>sim</td><td>Número de destino. No Brasil, com ou sem o 55 (5511999990000 ou 11999990000).</td></tr>
+<tr><td><code>text</code></td><td>sim</td><td>Texto da mensagem.</td></tr>
+<tr><td><code>reference</code></td><td>não</td><td>Seu identificador (até 128 caracteres). Reenviar a mesma referência não duplica o envio.</td></tr>
+<tr><td><code>channel</code></td><td>não</td><td>sms (padrão) ou rcs.</td></tr>
+</table></div>
+<pre>curl -X POST https://[API]/api/v1/messages \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"sid":"SID","to":"5511999990000","text":"Seu código é 482913","reference":"pedido-1001"}'</pre>
+<p>Resposta:</p>
+<pre>{ "id": "dx1234567", "status": "queued", "amount": 45000, "currency": "BRL" }</pre>
+<p>O campo amount é o valor cobrado em milionésimos da moeda (45000 = R$ 0,045).</p>
+<div class="note"><p style="margin: 0">Mensagens longas são aceitas: a Diamond X divide o texto e o aparelho mostra tudo junto, como uma mensagem só. Cada parte tem até 153 caracteres sem acento (ou 67 com acentos ou emojis), com limite de 20 partes. A cobrança é por parte; uma mensagem de até 160 caracteres (ou 70 com acentos) é uma parte só.</p></div>
+
+<div class="ep"><span class="m get">GET</span><span class="path">/api/v1/messages/{id}</span></div>
+<p>Consulta o status de uma mensagem.</p>
+<pre>{ "id": "dx1234567", "status": "delivered", "phone": "5511999990000", "channel": "sms",
+  "created_at": "…", "updated_at": "…", "delivered_at": "…" }</pre>
+<div class="tw"><table>
+<tr><th>Status</th><th>Significado</th></tr>
+<tr><td><code>queued</code></td><td>Na fila da Diamond X.</td></tr>
+<tr><td><code>sent</code></td><td>Aceita pela operadora, aguardando confirmação.</td></tr>
+<tr><td><code>delivered</code></td><td>Entregue no aparelho.</td></tr>
+<tr><td><code>undelivered</code></td><td>A operadora não conseguiu entregar.</td></tr>
+<tr><td><code>failed</code></td><td>Falhou ou foi recusada.</td></tr>
+<tr><td><code>unknown</code></td><td>Sem confirmação final da operadora.</td></tr>
+</table></div>
+
+<div class="ep"><span class="m get">GET</span><span class="path">/api/v1/routes</span></div>
+<p>Lista os SIDs/LAs ativos da sua conta, com canal (sms ou rcs), país, preço e moeda.</p>
+
+<div class="ep"><span class="m get">GET</span><span class="path">/api/v1/balance</span></div>
+<p>Mostra o saldo disponível, o saldo reservado para envios em andamento e a moeda da conta.</p>
+</section>
+
+<section id="rcs" class="sec">
+<h2>RCS</h2>
+<p>Com um SID de RCS liberado na sua conta, use o mesmo endpoint de envio com <code>"channel": "rcs"</code>:</p>
+<pre>{"sid":"SID_RCS","to":"5511999990000","text":"Sua compra saiu para entrega!","channel":"rcs"}</pre>
+<p>A mensagem chega com o nome, o logo e o selo de verificação da sua marca. Cards, carrossel e botões, e o cadastro do agente da sua marca, estão no guia de RCS dentro do painel.</p>
+</section>
+
+<section id="webhooks" class="sec">
+<h2>Webhooks</h2>
+<p>Cadastre no painel uma URL HTTPS do seu sistema para receber as atualizações de status das mensagens, sem precisar consultar a API.</p>
+<ul>
+<li>Cada chamada é assinada com HMAC-SHA256 no cabeçalho <code>X-DiamondX-Signature</code>, usando o segredo exibido no painel. Valide a assinatura antes de processar.</li>
+<li>Responda com HTTP 2xx. Se o seu sistema estiver fora do ar, a Diamond X tenta de novo.</li>
+<li>Use o id ou a sua reference para ligar o evento ao envio.</li>
+</ul>
+</section>
+
+<section id="smpp" class="sec">
+<h2>SMPP</h2>
+<ul>
+<li>Protocolo SMPP 3.4, com binds transmitter, receiver ou transceiver.</li>
+<li>Até 3 conexões por conta, cada uma com usuário e senha próprios.</li>
+<li>Relatórios de entrega (DLR) pelo deliver_sm, sempre que solicitados no registered_delivery.</li>
+<li>Mensagens longas: envie as partes com UDH ou SAR; elas chegam juntas no aparelho.</li>
+<li>Acesso liberado somente para os IPs cadastrados no painel.</li>
+<li>O endereço, a porta, o usuário (system_id) e a senha aparecem no painel, em Conexões API / SMPP, depois do login.</li>
+</ul>
+</section>
+
+<section id="erros" class="sec">
+<h2>Erros</h2>
+<p>Os erros voltam com o código HTTP e uma mensagem no campo error.</p>
+<div class="tw"><table>
+<tr><th>Código</th><th>Quando acontece</th></tr>
+<tr><td><code>400</code></td><td>Campo inválido ou ausente, número inválido para o país do SID ou SID não ativo na conta.</td></tr>
+<tr><td><code>401</code></td><td>Token ausente ou inválido.</td></tr>
+<tr><td><code>403</code></td><td>Acesso não permitido: IP não cadastrado, conta inativa ou SID não liberado.</td></tr>
+<tr><td><code>404</code></td><td>Mensagem não encontrada.</td></tr>
+</table></div>
+<p>Dúvidas na integração? Fale com o suporte técnico: <a href="https://wa.me/5548991998188">WhatsApp</a> · <a href="mailto:site@diamondx.app">site@diamondx.app</a></p>
+</section>
+</div>
+
+<footer style="border-top: 1px solid #EEF0F4; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: #5B6474">
+<p style="margin: 0">Vertex Consultoria em Tecnologia da Informação LTDA · CNPJ 54.654.095/0001-96</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px"><a href="/termos/#termos" style="color: #5B6474">Termos de uso</a><a href="/termos/#privacidade" style="color: #5B6474">Privacidade</a></div>
+</div>
+</footer>
+</div>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

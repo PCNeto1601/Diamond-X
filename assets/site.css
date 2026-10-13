@@ -1,0 +1,36 @@
+/* Base + responsive overrides for the Diamond X site (design uses inline styles, so mobile rules need !important) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#FFFFFF}
+*,*::before,*::after{box-sizing:border-box}
+img{max-width:100%;height:auto}
+section[id],[id]{scroll-margin-top:16px}
+a.dx-lang-pill:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #A6121C;outline-offset:2px}
+pre{max-width:100%;overflow-x:auto}
+/* keep the header on one line on laptops */
+@media (min-width: 1181px){
+  header nav{flex-wrap:nowrap!important;gap:12px 24px!important}
+  .dx-navlinks{flex-wrap:nowrap!important;gap:8px 20px!important;font-size:14.5px!important;flex:1 1 auto;white-space:nowrap}
+  header nav > div:last-child{flex-wrap:nowrap!important;white-space:nowrap}
+}
+@media (max-width: 1280px) and (min-width: 1181px){
+  .dx-navlinks a[href="#como-funciona"],.dx-navlinks a[href="#contato"]{display:none}
+}
+@media (max-width: 1180px){
+  .dx-navlinks{display:none!important}
+}
+@media (max-width: 640px){
+  header nav{padding:12px 16px!important;justify-content:space-between}
+  header nav img{height:36px!important}
+  header nav a[style*="padding: 1"]{padding:9px 14px!important;font-size:14px!important}
+  h1{font-size:38px!important;line-height:1.1!important}
+  h2{font-size:30px!important}
+  section > div,section{padding-left:16px!important;padding-right:16px!important}
+  #topo > div{padding-top:48px!important;padding-bottom:48px!important;gap:36px!important}
+  #canais,#voz,#como-funciona,#cobertura{padding-top:56px!important}
+  #rcs > div,#desenvolvedores > div{padding-top:56px!important;padding-bottom:56px!important;gap:40px!important}
+  #contato > div{padding:40px 24px!important}
+  #rcs [role=img]{width:100%!important;max-width:320px}
+  #topo [style*="grid-template-columns: repeat(3"] p:last-child{font-size:20px!important}
+  footer > div{padding-left:16px!important;padding-right:16px!important}
+  table{display:block;overflow-x:auto}
+}

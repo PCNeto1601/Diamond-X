@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diamond X — 短信、RCS 与语音 | Beyond delivery</title>
+<meta name="description" content="向巴西、拉丁美洲和亚洲发送短信、品牌 RCS 和自动语音呼叫。控制台、API 与 SMPP，支持 PIX 或 USDT 充值，无月费。">
+<link rel="canonical" href="https://diamondx.app/zh/">
+<link rel="alternate" hreflang="pt-BR" href="https://diamondx.app/">
+<link rel="alternate" hreflang="en" href="https://diamondx.app/en/">
+<link rel="alternate" hreflang="es" href="https://diamondx.app/es/">
+<link rel="alternate" hreflang="zh-CN" href="https://diamondx.app/zh/">
+<link rel="alternate" hreflang="x-default" href="https://diamondx.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diamond X">
+<meta property="og:title" content="Diamond X — 短信、RCS 与语音 | Beyond delivery">
+<meta property="og:description" content="向巴西、拉丁美洲和亚洲发送短信、品牌 RCS 和自动语音呼叫。控制台、API 与 SMPP，支持 PIX 或 USDT 充值，无月费。">
+<meta property="og:url" content="https://diamondx.app/zh/">
+<meta property="og:image" content="https://diamondx.app/assets/og-image.png">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#A6121C">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#A6121C}a:hover{color:#7E0D15}
+</style>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<div style="font-family: Inter, 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; color: #1D2330; background: #FFFFFF; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #EEF0F4; background: rgba(255,255,255,0.92)">
+<nav style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+<a href="#topo" style="display: flex; align-items: center; text-decoration: none">
+<img src="/assets/diamondx-logo-600.png" alt="Diamond X — Beyond delivery" style="height: 44px; width: auto; display: block">
+</a>
+<div class="dx-navlinks" style="display: flex; flex-wrap: wrap; gap: 8px 24px; flex: 1 1 auto; font-size: 15px; font-weight: 500">
+<a href="#canais" style="color: #3B4352; text-decoration: none">渠道</a>
+<a href="#rcs" style="color: #3B4352; text-decoration: none">RCS</a>
+<a href="#voz" style="color: #3B4352; text-decoration: none">语音</a>
+<a href="#como-funciona" style="color: #3B4352; text-decoration: none">使用流程</a>
+<a href="#desenvolvedores" style="color: #3B4352; text-decoration: none">开发者</a>
+<a href="#cobertura" style="color: #3B4352; text-decoration: none">覆盖范围</a>
+<a href="#contato" style="color: #3B4352; text-decoration: none">联系我们</a>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
+<div role="group" aria-label="Idioma / Language" style="display: flex; align-items: center; gap: 2px; background: #F4F5F8; border-radius: 999px; padding: 4px">
+
+<a href="/" hreflang="pt" lang="pt"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">PT</a>
+
+<a href="/en/" hreflang="en" lang="en"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">EN</a>
+
+<a href="/es/" hreflang="es" lang="es"  class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: transparent; color: #3B4352;">ES</a>
+
+<a href="/zh/" hreflang="zh" lang="zh" aria-current="page" class="dx-lang-pill" style="font: inherit; font-size: 14px; font-weight: 600; border: 0; text-decoration: none; display: inline-flex; align-items: center; border-radius: 999px; padding: 8px 12px; min-height: 36px; cursor: pointer; background: #A6121C; color: #FFFFFF;">中文</a>
+
+</div>
+<a href="https://novo.diamondx.app/criar-conta?lang=zh" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: #A6121C; text-decoration: none; padding: 12px 20px; border-radius: 999px">创建账户</a>
+<a href="https://novo.diamondx.app/" style="font-size: 15px; font-weight: 600; color: #1D2330; border: 1px solid #DCE0E8; text-decoration: none; padding: 11px 18px; border-radius: 999px">进入平台</a>
+</div>
+</nav>
+</header>
+
+<section id="topo" style="background: linear-gradient(180deg, #FFF6F5 0%, #FFFFFF 70%)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px 72px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 460px; min-width: 0">
+<p style="margin: 0 0 20px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #A6121C; background: #FDECEC; padding: 8px 14px; border-radius: 999px">短信 · RCS · 语音</p>
+<h1 style="margin: 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 60px; line-height: 1.06; letter-spacing: -0.035em; color: #141922"><span style="display: block">您的消息，准时送达。</span><span style="display: block">其余的，交给我们。</span></h1>
+<p style="margin: 24px 0 0; font-size: 19px; line-height: 1.6; color: #4A5263; max-width: 540px">通过直连通道向巴西、拉丁美洲和亚洲发送短信和 RCS。简单易用的控制台、API 与 SMPP、支持 PIX 或 USDT 充值、实时报表——一站式完成。</p>
+<div style="margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="https://novo.diamondx.app/criar-conta?lang=zh" style="font-size: 16px; font-weight: 600; color: #FFFFFF; background: #A6121C; text-decoration: none; padding: 16px 26px; border-radius: 999px">创建账户</a>
+<a href="https://wa.me/5548991998188" style="font-size: 16px; font-weight: 600; color: #1D2330; background: #FFFFFF; border: 1px solid #DCE0E8; text-decoration: none; padding: 15px 24px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z" fill="none" stroke="#1F8A5B" stroke-width="2" stroke-linejoin="round"></path></svg>
+联系我们</a>
+</div>
+<p style="margin: 20px 0 0; font-size: 14px; color: #5B6474">无月费，按发送量付费。</p>
+</div>
+
+<div style="flex: 1 1 460px; min-width: 0">
+<div style="background: #FFFFFF; border: 1px solid #EAECF1; border-radius: 20px; box-shadow: 0 24px 60px rgba(29,35,48,0.10); padding: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; gap: 12px">
+<p style="margin: 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 700; font-size: 17px">按活动统计</p>
+<p style="margin: 0; font-size: 12px; color: #5B6474; background: #F4F5F8; padding: 6px 10px; border-radius: 999px">示例数据</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<div style="background: #F7F8FA; border-radius: 14px; padding: 16px"><p style="margin: 0; font-size: 13px; color: #5B6474">已发送</p><p style="margin: 6px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 26px">12.480</p></div>
+<div style="background: #EAF6F0; border-radius: 14px; padding: 16px"><p style="margin: 0; font-size: 13px; color: #1A6B47">已送达</p><p style="margin: 6px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 26px; color: #155C3C">12.105</p></div>
+<div style="background: #FDECEC; border-radius: 14px; padding: 16px"><p style="margin: 0; font-size: 13px; color: #8E1018">回复</p><p style="margin: 6px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 26px; color: #7E0D15">318</p></div>
+</div>
+<div style="margin-top: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid #EEF0F4; border-radius: 12px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #1F8A5B"></span><span style="flex: 1; font-size: 14px">周末促销</span><span style="font-size: 13px; color: #5B6474">短信 · 已完成</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid #EEF0F4; border-radius: 12px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #E8A317"></span><span style="flex: 1; font-size: 14px">付款提醒</span><span style="font-size: 13px; color: #5B6474">短信 · 发送中</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid #EEF0F4; border-radius: 12px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A6121C"></span><span style="flex: 1; font-size: 14px">新品发布</span><span style="font-size: 13px; color: #5B6474">RCS · 已排期</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Diferenciais" style="border-top: 1px solid #EEF0F4; border-bottom: 1px solid #EEF0F4; background: #FAFBFC">
+<div style="max-width: 1200px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; font-size: 15px; font-weight: 500; color: #3B4352">
+<span>巴西、拉美及亚洲直连通道</span>
+<span>支持 PIX 或 USDT 充值</span>
+<span>REST API 与 SMPP</span>
+<span>控制台查看客户回复</span>
+<span>控制台支持 PT · EN · ES · 中文</span>
+</div>
+</section>
+
+<section id="canais" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 40px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #A6121C; letter-spacing: 0.04em; text-transform: uppercase">渠道</p>
+<h2 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.03em; line-height: 1.12; max-width: 680px">从验证码到带按钮的营销活动。</h2>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<article style="border: 1px solid #EAECF1; border-radius: 20px; padding: 32px; background: #FFFFFF">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: #FDECEC; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="#A6121C" stroke-width="2" stroke-linejoin="round"></path></svg></div>
+<h3 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px">SMS</h3>
+<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #4A5263">验证码、提醒、通知和营销活动。长短信完整送达，客户回复直接显示在控制台。</p>
+</article>
+<article style="border: 1px solid #EAECF1; border-radius: 20px; padding: 32px; background: #FFFFFF">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: #EEF1FB; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="12" rx="3" fill="none" stroke="#3446A8" stroke-width="2"></rect><path d="M8 20h8" stroke="#3446A8" stroke-width="2" stroke-linecap="round"></path></svg></div>
+<h3 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px">RCS</h3>
+<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #4A5263">带有认证品牌、图片和按钮的消息，直接出现在手机自带的消息应用中。</p>
+</article>
+<article style="border: 1px solid #EAECF1; border-radius: 20px; padding: 32px; background: #FFFFFF">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: #EEF0F4; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z" fill="none" stroke="#5B6474" stroke-width="2" stroke-linejoin="round"></path></svg></div>
+<h3 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 700; font-size: 24px">语音</h3>
+<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #4A5263">用于确认和重要通知的自动语音呼叫。</p>
+</article>
+</div>
+</section>
+
+<section id="rcs" style="background: #F7F8FA; margin-top: 56px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 440px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #3446A8; letter-spacing: 0.04em; text-transform: uppercase">带有您品牌的 RCS</p>
+<h2 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.03em; line-height: 1.12">客户一眼看到是谁在联系他：品牌标志、品牌色和认证标识。</h2>
+<p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #4A5263">使用 RCS，消息不再来自陌生号码，而是带着您公司的名称和标志，出现在客户已在使用的消息应用中。更多信任，更少诈骗，更多点击。</p>
+<div style="margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+<div style="background: #FFFFFF; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">认证发件人</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">品牌名称、标志和颜色，并带有认证标识。</p></div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">卡片与轮播</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">用图片、标题和描述展示产品与优惠。</p></div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">操作按钮</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">一键打开网站、拨打电话、查看路线或快速回复。</p></div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">注册由我们负责</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">您提供标志和品牌信息，我们负责代理审核。</p></div>
+</div>
+</div>
+<div style="flex: 0 1 340px; min-width: 0; display: flex; justify-content: center">
+<div role="img" aria-label="带认证品牌的 RCS 消息示例" style="width: 320px; background: #FFFFFF; border: 10px solid #141922; border-radius: 44px; overflow: hidden; box-shadow: 0 30px 70px rgba(20,25,34,0.18)">
+<div style="padding: 18px 18px 14px; border-bottom: 1px solid #EEF0F4; display: flex; align-items: center; gap: 10px">
+<div style="width: 40px; height: 40px; border-radius: 50%; background: #0F7B6C; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 16px">品</div>
+<div style="flex: 1; min-width: 0">
+<p style="margin: 0; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px">您的品牌 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#3446A8"></circle><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></p>
+<p style="margin: 2px 0 0; font-size: 12px; color: #5B6474">认证企业</p>
+</div>
+</div>
+<div style="padding: 16px; background: #F4F5F8; display: flex; flex-direction: column; gap: 10px">
+<div style="background: #FFFFFF; border-radius: 18px; overflow: hidden">
+<div style="height: 150px; background: linear-gradient(135deg, #0F7B6C 0%, #FF8A8F 100%); display: flex; align-items: flex-end; padding: 14px; box-sizing: border-box"><span style="font-size: 12px; font-weight: 600; color: #FFFFFF; background: rgba(0,0,0,0.25); padding: 4px 10px; border-radius: 999px">[活动图片]</span></div>
+<div style="padding: 14px">
+<p style="margin: 0; font-weight: 600; font-size: 15px">您的订单已发货</p>
+<p style="margin: 6px 0 0; font-size: 13px; line-height: 1.5; color: #4A5263">订单 #48213 将于今天 14:00–18:00 送达。</p>
+</div>
+<div style="border-top: 1px solid #EEF0F4; display: flex; flex-direction: column">
+<span style="padding: 12px; text-align: center; font-size: 14px; font-weight: 600; color: #3446A8">跟踪配送</span>
+<span style="padding: 12px; text-align: center; font-size: 14px; font-weight: 600; color: #3446A8; border-top: 1px solid #EEF0F4">联系客服</span>
+</div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<span style="font-size: 13px; font-weight: 500; color: #3446A8; border: 1px solid #C9D0EE; background: #FFFFFF; padding: 7px 12px; border-radius: 999px">修改地址</span>
+<span style="font-size: 13px; font-weight: 500; color: #3446A8; border: 1px solid #C9D0EE; background: #FFFFFF; padding: 7px 12px; border-radius: 999px">好的，谢谢</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="voz" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 0 1 380px; min-width: 0">
+<div role="img" aria-label="带按键确认的自动语音呼叫示例" style="background: #141922; border-radius: 28px; padding: 32px; color: #FFFFFF">
+<p style="margin: 0; font-size: 13px; color: #B9C0CC">来电</p>
+<p style="margin: 8px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 700; font-size: 24px">示例诊所</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #B9C0CC">(11) 4000-0000 · 显示来电号码</p>
+<div style="margin-top: 24px; display: flex; align-items: flex-end; gap: 4px; height: 44px" aria-hidden="true">
+<span style="width: 6px; height: 18px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 34px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 26px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 42px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 22px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 36px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 14px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 30px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 20px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 38px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 24px; background: #FF8A8F; border-radius: 3px"></span><span style="width: 6px; height: 16px; background: #FF8A8F; border-radius: 3px"></span>
+</div>
+<p style="margin: 20px 0 0; font-size: 16px; line-height: 1.6; color: #E9ECF2">“您好，Maria。您的预约在明天上午 9 点。确认请按 1，改期请按 2。”</p>
+<div style="margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<span style="text-align: center; padding: 12px 0; border-radius: 14px; background: #1F8A5B; font-weight: 700">1</span>
+<span style="text-align: center; padding: 12px 0; border-radius: 14px; background: #262D3A; font-weight: 700">2</span>
+<span style="text-align: center; padding: 12px 0; border-radius: 14px; background: #262D3A; font-weight: 700">3</span>
+</div>
+</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #A6121C; letter-spacing: 0.04em; text-transform: uppercase">语音</p>
+<h2 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.03em; line-height: 1.12">重要通知不容错过，就打电话。</h2>
+<p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #4A5263">大规模自动语音呼叫，与短信和 RCS 共用同一账户、同一余额和同一报表。</p>
+<div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+<div style="border: 1px solid #EAECF1; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">文字转语音</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">输入包含客户姓名的消息，平台自动朗读。</p></div>
+<div style="border: 1px solid #EAECF1; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">录音播放</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">上传音频文件，使用您品牌的声音。</p></div>
+<div style="border: 1px solid #EAECF1; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">按键回复</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">按 1、2 或 3 即可确认、取消或改期。</p></div>
+<div style="border: 1px solid #EAECF1; border-radius: 16px; padding: 20px"><p style="margin: 0; font-weight: 600; font-size: 16px">来电显示</p><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">呼叫显示固定号码，而不是未知号码。</p></div>
+</div>
+<div style="margin-top: 14px; background: #FFF6F5; border: 1px solid #F3DCDC; border-radius: 16px; padding: 20px; display: flex; gap: 16px; align-items: flex-start">
+<div style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="#A6121C" stroke-width="2" stroke-linejoin="round"></path></svg></div>
+<div style="min-width: 0">
+<p style="margin: 0; font-weight: 600; font-size: 16px">通话结束后，再发一条消息</p>
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #4A5263">通话结束时，自动发送一条包含链接、验证码或通话摘要的短信或 RCS。客户既听到了，也有书面记录。</p>
+</div>
+</div>
+<p style="margin: 22px 0 0; font-size: 15px; color: #4A5263">适用于：预约和配送确认、催收、语音验证码和紧急通知。</p>
+</div>
+</section>
+
+<section id="como-funciona" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #A6121C; letter-spacing: 0.04em; text-transform: uppercase">使用流程</p>
+<h2 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.03em; line-height: 1.12">三步完成首次发送。</h2>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<div style="background: #F7F8FA; border-radius: 20px; padding: 32px">
+<p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; color: #A6121C">1</p>
+<h3 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 700; font-size: 21px">创建账户</h3>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: #4A5263">几分钟内在线注册，填写您和公司的信息。</p>
+</div>
+<div style="background: #F7F8FA; border-radius: 20px; padding: 32px">
+<p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; color: #A6121C">2</p>
+<h3 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 700; font-size: 21px">充值余额</h3>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: #4A5263">通过 PIX 或 USDT 付款，余额自动到账。无合约，无月费。</p>
+</div>
+<div style="background: #F7F8FA; border-radius: 20px; padding: 32px">
+<p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; color: #A6121C">3</p>
+<h3 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 700; font-size: 21px">开始发送</h3>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: #4A5263">在控制台上传号码列表，或通过 API、SMPP 集成。实时跟踪送达和回复。</p>
+</div>
+</div>
+</section>
+
+<section id="desenvolvedores" style="background: #141922; color: #E9ECF2">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 400px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #FF8A8F; letter-spacing: 0.04em; text-transform: uppercase">开发者</p>
+<h2 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.03em; line-height: 1.12; color: #FFFFFF">几分钟完成集成。</h2>
+<p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #B9C0CC">基于令牌的 REST API、每个账户最多 3 个连接的 SMPP 3.4、仅允许您登记的 IP 访问，并为每条消息提供送达报告（DLR）。</p>
+<a href="/zh/docs/" style="margin-top: 28px; display: inline-block; font-size: 16px; font-weight: 600; color: #141922; background: #FFFFFF; text-decoration: none; padding: 14px 22px; border-radius: 999px">查看文档</a>
+</div>
+<div style="flex: 1 1 480px; min-width: 0; background: #0D1118; border: 1px solid #262D3A; border-radius: 18px; padding: 24px; overflow-x: auto">
+<pre style="margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 14px; line-height: 1.7; color: #D5DAE3">curl -X POST https://[API]/api/v1/messages \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sid": "SID",
+    "to": "5511999990000",
+    "text": "您的验证码是 482913"
+  }'</pre>
+</div>
+</div>
+</section>
+
+<section id="cobertura" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 420px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #A6121C; letter-spacing: 0.04em; text-transform: uppercase">覆盖范围</p>
+<h2 style="margin: 12px 0 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.03em; line-height: 1.12">巴西、拉丁美洲和亚洲，直连通道。</h2>
+<p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #4A5263">我们与多家运营商合作，为每次发送选择最佳通道。某家运营商出现波动时，流量会自动走其他通道。</p>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #FDECEC; color: #7E0D15;">巴西</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #F4F5F8;">阿根廷</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #F4F5F8;">智利</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #F4F5F8;">哥伦比亚</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #F4F5F8;">墨西哥</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #F4F5F8;">哥斯达黎加</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #F4F5F8;">委内瑞拉</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #EEF1FB; color: #2A3A8F;">菲律宾</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #EEF1FB; color: #2A3A8F;">马来西亚</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #EEF1FB; color: #2A3A8F;">中国</span>
+
+<span style="font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; border: 1px dashed #C9CED8; color: #4A5263;">及其他国家</span>
+
+</div>
+</section>
+
+<section id="contato" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 96px">
+<div style="background: #A6121C; border-radius: 28px; padding: 64px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; color: #FFFFFF">
+<div style="flex: 1 1 420px; min-width: 0">
+<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD3D6">Diamond X — Beyond delivery</p>
+<h2 style="margin: 0; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.03em; line-height: 1.12">准备好更好地发送了吗？</h2>
+<p style="margin: 14px 0 0; font-size: 18px; line-height: 1.6; color: #FFE3E5">立即创建账户或联系我们，快速响应。</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="https://novo.diamondx.app/criar-conta?lang=zh" style="font-size: 16px; font-weight: 600; color: #A6121C; background: #FFFFFF; text-decoration: none; padding: 16px 26px; border-radius: 999px">创建账户</a>
+<a href="https://wa.me/5548991998188" style="font-size: 16px; font-weight: 600; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.7); text-decoration: none; padding: 15px 24px; border-radius: 999px">WhatsApp +55 48 99199-8188</a>
+</div>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #EEF0F4">
+<div style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; font-size: 14px; color: #5B6474">
+<div>
+<img src="/assets/diamondx-logo-600.png" alt="Diamond X — Beyond delivery" style="height: 60px; width: auto; display: block">
+<p style="margin: 10px 0 0">Vertex Consultoria em Tecnologia da Informação LTDA · CNPJ 54.654.095/0001-96</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="/zh/termos/#termos" style="color: #5B6474">使用条款</a>
+<a href="/zh/termos/#uso-aceitavel" style="color: #5B6474">发送政策</a>
+<a href="/zh/termos/#privacidade" style="color: #5B6474">隐私政策</a>
+<a href="/zh/termos/#cookies" style="color: #5B6474">Cookies</a>
+<a href="/zh/termos/#contrato" style="color: #5B6474">服务合同</a>
+<a href="mailto:site@diamondx.app" style="color: #5B6474">site@diamondx.app</a>
+</div>
+</div>
+</footer>
+</div>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
